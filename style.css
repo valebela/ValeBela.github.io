@@ -69,4 +69,19 @@ section {
 /* Footer */
 footer {
     text-align: center;
-    padding:
+    padding: 1em;
+    background-color: #121212;
+    border-top: 2px solid #b71c1c;
+}
+
+/* Optional Grunge Scrollbar */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+*::-webkit-scrollbar-track {
+    background: #1b1b1b;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #b71c1c;
+    border-radius: 4px;
+}
