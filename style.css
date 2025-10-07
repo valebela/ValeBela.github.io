@@ -127,26 +127,26 @@ footer {
     overflow: hidden;
 }
 
-/* Ghost image */
+/* Ghost image - full width animation */
 .ghost-banner img {
     width: 40px;
     height: auto;
-    margin-right: 10px;
-    position: relative;
-    animation: floatSide 8s ease-in-out infinite, floatUp 4s ease-in-out infinite;
+    position: absolute; /* allow movement across banner */
+    top: 50%;           /* vertically center in banner */
+    transform: translateY(-50%);
+    animation: floatAcross 12s linear infinite, floatUp 4s ease-in-out infinite;
 }
 
-/* Side-to-side movement */
-@keyframes floatSide {
-    0%   { transform: translateX(0); }
-    50%  { transform: translateX(30px); }
-    100% { transform: translateX(0); }
+/* Move ghost across the entire banner */
+@keyframes floatAcross {
+    0%   { left: -50px; }   /* start slightly off-screen */
+    100% { left: 100%; }    /* end past the right edge */
 }
 
 /* Up-and-down bobbing */
 @keyframes floatUp {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50%      { transform: translateY(-55%) translateX(0); }
 }
 
 /* Banner text moves gently with ghost */
