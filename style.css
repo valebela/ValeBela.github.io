@@ -114,7 +114,7 @@ footer {
     left: 0;
     width: 100%;
     height: 45px;
-    background-color: rgba(120, 100, 130, 0.85);
+    background-color: rgba(120, 100, 130, 0.85); /* ashy, desaturated purple */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -127,7 +127,7 @@ footer {
     animation: scrollBanner 12s linear infinite;
 }
 
-
+/* Each ghost + text pair */
 .ghost-item {
     display: flex;
     align-items: center;
@@ -139,24 +139,30 @@ footer {
     max-width: 5vw;
     height: auto;
     margin-right: 10px;
-    animation: floatUp 4s ease-in-out infinite;
+    animation: floatUp 4s ease-in-out infinite; /* bobbing effect */
 }
 
-/* Ghost bobbing effect */
+.ghost-item span {
+    font-family: 'Courier', monospace;
+    font-weight: bold;
+}
+
+/* Bobbing animation */
 @keyframes floatUp {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-5px); }
 }
 
-/* Scroll banner effect */
+/* Smooth scrolling */
 @keyframes scrollBanner {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* adjust based on number of duplicates */
+    100% { transform: translateX(-50%); } /* scroll half the track for seamless loop */
 }
 
-/* Responsive adjustments */
+/* Optional responsive adjustment for small screens */
 @media screen and (max-width: 500px) {
     .ghost-item {
         margin-right: 50px;
     }
 }
+
