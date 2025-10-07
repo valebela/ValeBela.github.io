@@ -4,7 +4,7 @@
 /* Body */
 body {
     font-family: 'Courier', monospace;
-    background-color: #302828;
+    background-color: #332d2d;
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
 /* Headers */
 h1, h2 {
     font-family: 'MedievalSharp', cursive;
-    color: #1f7a8c; /* teal accent */
+    color: #b1c4c9; /* teal accent */
     margin-bottom: 0.5em;
 }
 
