@@ -115,32 +115,41 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
+    height: 50px; /* adjust banner height */
     background-color: rgba(48, 40, 40, 0.95);
     color: #1f7a8c;
     font-family: 'Courier', monospace;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0.5em 1em;
+    padding: 0 1em;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     overflow: hidden;
 }
 
-/* Ghost image - full width animation */
+/* Ghost image */
 .ghost-banner img {
-    width: 40px;
+    width: 40px;           /* base size */
+    max-width: 5vw;        /* responsive to viewport width */
     height: auto;
-    position: absolute; /* allow movement across banner */
-    top: 50%;           /* vertically center in banner */
+    position: fixed;       /* move relative to viewport */
+    top: 50%;              /* vertical center */
+    left: -50px;           /* start off-screen */
     transform: translateY(-50%);
-    animation: floatAcross 12s linear infinite, floatUp 4s ease-in-out infinite;
+    animation: ghostMove 12s linear infinite, floatUp 4s ease-in-out infinite;
 }
 
-/* Move ghost across the entire banner */
-@keyframes floatAcross {
-    0%   { left: -50px; }   /* start slightly off-screen */
-    100% { left: 100%; }    /* end past the right edge */
+/* Banner text */
+.ghost-banner span {
+    font-family: 'Courier', monospace;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Move ghost across the screen */
+@keyframes ghostMove {
+    0% { transform: translateY(-50%) translateX(0); left: -50px; }
+    100% { transform: translateY(-50%) translateX(100vw); left: -50px; }
 }
 
 /* Up-and-down bobbing */
@@ -149,17 +158,9 @@ footer {
     50%      { transform: translateY(-55%) translateX(0); }
 }
 
-/* Banner text moves gently with ghost */
-.ghost-banner span {
-    font-family: 'Courier', monospace;
-    font-size: 1em;
-    font-weight: bold;
-    display: inline-block;
-    animation: textFloat 8s ease-in-out infinite;
-}
-
-@keyframes textFloat {
-    0%   { transform: translateX(0); }
-    50%  { transform: translateX(10px); }
-    100% { transform: translateX(0); }
+/* Optional: cap size for very large screens */
+@media screen and (min-width: 1200px) {
+    .ghost-banner img {
+        max-width: 50px;
+    }
 }
