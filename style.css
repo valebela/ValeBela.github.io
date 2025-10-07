@@ -1,111 +1,45 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
-
-/* Body */
-body {
+/* --- Floating Ghost Banner --- */
+.ghost-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(48, 40, 40, 0.95);
+    color: #1f7a8c;
     font-family: 'Courier', monospace;
-    background-color: #332f2f;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-/* Headers */
-h1, h2 {
-    font-family: 'MedievalSharp', cursive;
-    color: #b1c4c9; /* teal accent */
-    margin-bottom: 0.5em;
-}
-
-/* Links */
-a {
-    color: #cec3d6;
-    text-decoration: none;
-    transition: 0.3s;
-}
-a:hover {
-    text-shadow: 0 0 8px #1f7a8c;
-}
-
-/* Header / Nav */
-header {
-    background-color: #1b1b1b;
-    padding: 1em 2em;
-    border-bottom: 2px solid #b1c4c9;
-}
-header nav a {
-    margin-right: 1.5em;
-}
-
-/* Hero Section */
-#hero {
-    background: url('images/grunge-hero.jpg') center/cover no-repeat;
-    height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #e0e0e0;
-    text-align: center;
+    justify-content: flex-start;
+    padding: 0.5em 1em;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Ghost image */
+.ghost-banner img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
     position: relative;
-}
-#hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(48, 40, 40, 0.6); /* dark overlay */
-}
-.hero-text {
-    position: relative;
-    z-index: 1;
+    animation: floatSide 4s ease-in-out infinite, floatUp 2s ease-in-out infinite;
 }
 
-/* Sections */
-section {
-    padding: 2em;
-    border-bottom: 1px solid #444;
+/* Floating side to side */
+@keyframes floatSide {
+    0%   { left: 0; }
+    50%  { left: calc(100% - 50px); } /* ghost moves across banner */
+    100% { left: 0; }
 }
 
-/* Projects / Art Cards */
-.project-container, .art-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2em;
-}
-.project, .art {
-    background: #3a2f2f;
-    padding: 1em;
-    border: 1px solid #444;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.project:hover, .art:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(31, 122, 140, 0.5);
+/* Floating up and down */
+@keyframes floatUp {
+    0%, 100% { top: 0; }
+    50% { top: -5px; }
 }
 
-/* Images */
-.project img, .art img {
-    max-width: 100%;
-    border: 1px solid #444;
+/* Banner text */
+.ghost-banner span {
+    font-family: 'Courier', monospace;
+    font-size: 1em;
+    font-weight: bold;
 }
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #1b1b1b;
-    border-top: 2px solid #b1c4c9;
-
-/* Optional Grunge Scrollbar */
-*::-webkit-scrollbar {
-    width: 8px;
-}
-*::-webkit-scrollbar-track {
-    background: #302828;
-}
-*::-webkit-scrollbar-thumb {
-    background-color: #1f7a8c;
-    border-radius: 4px;
-}
-
-
