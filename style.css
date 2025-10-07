@@ -11,7 +11,7 @@ body {
     background-color: #332f2f;
     color: #e0e0e0;
     margin: 0;
-    padding: 0;
+    padding-top: 50px; /* push content below banner */
     line-height: 1.6;
 }
 
@@ -46,30 +46,6 @@ header {
 }
 header nav a {
     margin-right: 1.5em;
-}
-
-/* =======================
-   Hero Section
-======================= */
-#hero {
-    background: url('images/grunge-hero.jpg') center/cover no-repeat;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e0e0e0;
-    text-align: center;
-    position: relative;
-}
-#hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(48, 40, 40, 0.6);
-}
-.hero-text {
-    position: relative;
-    z-index: 1;
 }
 
 /* =======================
@@ -174,5 +150,12 @@ footer {
 /* Scroll banner effect */
 @keyframes scrollBanner {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* adjust to match number of duplicates */
+    100% { transform: translateX(-50%); } /* adjust based on number of duplicates */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 500px) {
+    .ghost-item {
+        margin-right: 50px;
+    }
 }
