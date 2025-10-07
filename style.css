@@ -127,14 +127,6 @@ footer {
     animation: scrollBanner 12s linear infinite;
 }
 
-/* Add a pseudo-element to duplicate the content */
-.ghost-track::after {
-    content: '';
-    display: inline-block;
-    width: 100%; /* same width as track */
-}
-
-}
 
 .ghost-item {
     display: flex;
