@@ -34,4 +34,132 @@ header {
     padding: 1em 2em;
     border-bottom: 2px solid #b1c4c9;
 }
-he
+header nav a {
+    margin-right: 1.5em;
+}
+
+/* Hero Section */
+#hero {
+    background: url('images/grunge-hero.jpg') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+    text-align: center;
+    position: relative;
+}
+#hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(48, 40, 40, 0.6); /* dark overlay */
+}
+.hero-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Sections */
+section {
+    padding: 2em;
+    border-bottom: 1px solid #444;
+}
+
+/* Projects / Art Cards */
+.project-container, .art-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+}
+.project, .art {
+    background: #3a2f2f;
+    padding: 1em;
+    border: 1px solid #444;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project:hover, .art:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(31, 122, 140, 0.5);
+}
+
+/* Images */
+.project img, .art img {
+    max-width: 100%;
+    border: 1px solid #444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #1b1b1b;
+    border-top: 2px solid #b1c4c9;
+}
+
+/* Optional Grunge Scrollbar */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+*::-webkit-scrollbar-track {
+    background: #302828;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #1f7a8c;
+    border-radius: 4px;
+}
+
+/* --- Floating Ghost Banner --- */
+.ghost-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(48, 40, 40, 0.95);
+    color: #1f7a8c;
+    font-family: 'Courier', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5em 1em;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+/* Ghost image */
+.ghost-banner img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+    position: relative;
+    animation: floatSide 8s ease-in-out infinite, floatUp 4s ease-in-out infinite;
+}
+
+/* Side-to-side movement */
+@keyframes floatSide {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(30px); }
+    100% { transform: translateX(0); }
+}
+
+/* Up-and-down bobbing */
+@keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Banner text moves gently with ghost */
+.ghost-banner span {
+    font-family: 'Courier', monospace;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    animation: textFloat 8s ease-in-out infinite;
+}
+
+@keyframes textFloat {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
