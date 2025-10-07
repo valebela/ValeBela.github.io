@@ -1,7 +1,11 @@
-/* Fonts */
+/* =======================
+   Fonts
+======================= */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
-/* Body */
+/* =======================
+   Body
+======================= */
 body {
     font-family: 'Courier', monospace;
     background-color: #332f2f;
@@ -11,14 +15,18 @@ body {
     line-height: 1.6;
 }
 
-/* Headers */
+/* =======================
+   Headers
+======================= */
 h1, h2 {
     font-family: 'MedievalSharp', cursive;
     color: #b1c4c9; /* teal accent */
     margin-bottom: 0.5em;
 }
 
-/* Links */
+/* =======================
+   Links
+======================= */
 a {
     color: #cec3d6;
     text-decoration: none;
@@ -28,7 +36,9 @@ a:hover {
     text-shadow: 0 0 8px #1f7a8c;
 }
 
-/* Header / Nav */
+/* =======================
+   Header / Nav
+======================= */
 header {
     background-color: #1b1b1b;
     padding: 1em 2em;
@@ -38,7 +48,9 @@ header nav a {
     margin-right: 1.5em;
 }
 
-/* Hero Section */
+/* =======================
+   Hero Section
+======================= */
 #hero {
     background: url('images/grunge-hero.jpg') center/cover no-repeat;
     height: 60vh;
@@ -60,13 +72,17 @@ header nav a {
     z-index: 1;
 }
 
-/* Sections */
+/* =======================
+   Sections
+======================= */
 section {
     padding: 2em;
     border-bottom: 1px solid #444;
 }
 
-/* Projects / Art Cards */
+/* =======================
+   Projects / Art Cards
+======================= */
 .project-container, .art-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -89,7 +105,9 @@ section {
     border: 1px solid #444;
 }
 
-/* Footer */
+/* =======================
+   Footer
+======================= */
 footer {
     text-align: center;
     padding: 1em;
@@ -97,7 +115,9 @@ footer {
     border-top: 2px solid #b1c4c9;
 }
 
-/* Optional Grunge Scrollbar */
+/* =======================
+   Optional Grunge Scrollbar
+======================= */
 *::-webkit-scrollbar {
     width: 8px;
 }
@@ -109,33 +129,35 @@ footer {
     border-radius: 4px;
 }
 
-/* --- Floating Ghost Banner --- */
+/* =======================
+   Floating Ghost Banner
+======================= */
 .ghost-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* adjust banner height */
+    height: 50px;
     background-color: rgba(48, 40, 40, 0.95);
     color: #1f7a8c;
     font-family: 'Courier', monospace;
     display: flex;
     align-items: center;
     padding: 0 1em;
-    z-index: 1000;
+    z-index: 9999;
     overflow: hidden;
 }
 
 /* Ghost image */
 .ghost-banner img {
     width: 40px;           /* base size */
-    max-width: 5vw;        /* responsive to viewport width */
+    max-width: 5vw;        /* responsive */
     height: auto;
-    position: fixed;       /* move relative to viewport */
-    top: 50%;              /* vertical center */
-    left: -50px;           /* start off-screen */
+    position: absolute;    /* move relative to banner */
+    top: 50%;
     transform: translateY(-50%);
     animation: ghostMove 12s linear infinite, floatUp 4s ease-in-out infinite;
+    z-index: 10000;
 }
 
 /* Banner text */
@@ -143,22 +165,22 @@ footer {
     font-family: 'Courier', monospace;
     font-size: 1em;
     font-weight: bold;
-    display: inline-block;
+    margin-left: 10px;
 }
 
-/* Move ghost across the screen */
+/* Ghost moves across full banner */
 @keyframes ghostMove {
-    0% { transform: translateY(-50%) translateX(0); left: -50px; }
-    100% { transform: translateY(-50%) translateX(100vw); left: -50px; }
+    0%   { left: -50px; }
+    100% { left: 100%; }
 }
 
-/* Up-and-down bobbing */
+/* Ghost bobbing effect */
 @keyframes floatUp {
-    0%, 100% { transform: translateY(-50%) translateX(0); }
-    50%      { transform: translateY(-55%) translateX(0); }
+    0%, 100% { transform: translateY(-50%); }
+    50%      { transform: translateY(-55%); }
 }
 
-/* Optional: cap size for very large screens */
+/* Optional: cap size on large screens */
 @media screen and (min-width: 1200px) {
     .ghost-banner img {
         max-width: 50px;
